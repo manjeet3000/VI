@@ -1,0 +1,24 @@
+<!ELEMENT Configuration (Properties,Appenders,Loggers)>
+<!ATTLIST Configuration status NMTOKEN #REQUIRED>
+<!ATTLIST Configuration monitorInterval NMTOKEN #REQUIRED>
+<!ELEMENT Properties (Property+)>
+<!ELEMENT Property (#PCDATA)>
+<!ATTLIST Property name NMTOKEN #REQUIRED>
+<!ELEMENT Appenders (Console,RollingFile+)>
+<!ELEMENT Console (PatternLayout)>
+<!ATTLIST Console name NMTOKEN #REQUIRED>
+<!ATTLIST Console target NMTOKEN #REQUIRED>
+<!ATTLIST Console follow NMTOKEN #REQUIRED>
+<!ELEMENT PatternLayout EMPTY>
+<!ATTLIST PatternLayout pattern CDATA #FIXED "${LOG_PATTERN}"><!ELEMENT RollingFile (LevelRangeFilter?,PatternLayout,Policies,DefaultRolloverStrategy)><!ATTLIST RollingFile name NMTOKEN #REQUIRED><!ATTLIST RollingFile fileName CDATA #REQUIRED><!ATTLIST RollingFile filePattern CDATA #REQUIRED><!ELEMENT LevelRangeFilter EMPTY><!ATTLIST LevelRangeFilter minLevel NMTOKEN #REQUIRED><!ATTLIST LevelRangeFilter maxLevel NMTOKEN #REQUIRED><!ATTLIST LevelRangeFilter onMatch NMTOKEN #REQUIRED><!ATTLIST LevelRangeFilter onMismatch NMTOKEN #REQUIRED><!ELEMENT Policies (SizeBasedTriggeringPolicy)><!ELEMENT SizeBasedTriggeringPolicy EMPTY><!ATTLIST SizeBasedTriggeringPolicy size NMTOKEN #FIXED "10MB">
+<!ELEMENT DefaultRolloverStrategy EMPTY>
+<!ATTLIST DefaultRolloverStrategy max NMTOKEN #REQUIRED>
+<!ELEMENT Loggers (Logger+,Root)>
+<!ELEMENT Logger (AppenderRef+)>
+<!ATTLIST Logger name NMTOKEN #REQUIRED>
+<!ATTLIST Logger additivity NMTOKEN #REQUIRED>
+<!ATTLIST Logger level NMTOKEN #REQUIRED>
+<!ELEMENT AppenderRef EMPTY>
+<!ATTLIST AppenderRef ref NMTOKEN #REQUIRED>
+<!ELEMENT Root (AppenderRef)>
+<!ATTLIST Root level NMTOKEN #REQUIRED>

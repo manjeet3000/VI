@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Command line suite]">
+  <test thread-count="5" name="Command line test(failed)">
+    <classes>
+      <class name="com.vendorinsight.test.VendorInsightTest">
+        <methods>
+          <include name="TestSearchInVendorInsight"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+          <include name="TestFieldOperation"/>
+          <include name="AfterMethod"/>
+          <include name="TestVILaunch"/>
+          <include name="TestVITabs"/>
+          <include name="TestGetLinks"/>
+          <include name="TestVIWritereview"/>
+        </methods>
+      </class> <!-- com.vendorinsight.test.VendorInsightTest -->
+    </classes>
+  </test> <!-- Command line test(failed) -->
+</suite> <!-- Failed suite [Command line suite] -->
